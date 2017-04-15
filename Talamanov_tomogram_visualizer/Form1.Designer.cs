@@ -35,11 +35,13 @@
             this.rdBtnQuads = new System.Windows.Forms.RadioButton();
             this.rdBtnTexture = new System.Windows.Forms.RadioButton();
             this.tbMin = new System.Windows.Forms.TrackBar();
-            this.tbWidth = new System.Windows.Forms.TrackBar();
+            this.tbMax = new System.Windows.Forms.TrackBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMax)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -62,9 +64,9 @@
             // glControl1
             // 
             this.glControl1.BackColor = System.Drawing.Color.Black;
-            this.glControl1.Location = new System.Drawing.Point(13, 152);
+            this.glControl1.Location = new System.Drawing.Point(18, 191);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(1394, 528);
+            this.glControl1.Size = new System.Drawing.Size(1413, 544);
             this.glControl1.TabIndex = 1;
             this.glControl1.VSync = false;
             this.glControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.glControl1_Paint);
@@ -81,7 +83,7 @@
             // 
             this.rdBtnQuads.AutoSize = true;
             this.rdBtnQuads.Checked = true;
-            this.rdBtnQuads.Location = new System.Drawing.Point(1375, 41);
+            this.rdBtnQuads.Location = new System.Drawing.Point(1351, 27);
             this.rdBtnQuads.Name = "rdBtnQuads";
             this.rdBtnQuads.Size = new System.Drawing.Size(56, 17);
             this.rdBtnQuads.TabIndex = 3;
@@ -92,7 +94,7 @@
             // rdBtnTexture
             // 
             this.rdBtnTexture.AutoSize = true;
-            this.rdBtnTexture.Location = new System.Drawing.Point(1370, 64);
+            this.rdBtnTexture.Location = new System.Drawing.Point(1351, 50);
             this.rdBtnTexture.Name = "rdBtnTexture";
             this.rdBtnTexture.Size = new System.Drawing.Size(61, 17);
             this.rdBtnTexture.TabIndex = 4;
@@ -101,26 +103,50 @@
             // 
             // tbMin
             // 
-            this.tbMin.Location = new System.Drawing.Point(13, 64);
+            this.tbMin.Location = new System.Drawing.Point(14, 89);
+            this.tbMin.Maximum = 2096;
+            this.tbMin.Minimum = -1000;
             this.tbMin.Name = "tbMin";
             this.tbMin.Size = new System.Drawing.Size(1333, 45);
             this.tbMin.TabIndex = 5;
+            this.tbMin.Value = -1000;
             this.tbMin.Scroll += new System.EventHandler(this.tbMin_Scroll);
             // 
-            // tbWidth
+            // tbMax
             // 
-            this.tbWidth.Location = new System.Drawing.Point(13, 101);
-            this.tbWidth.Name = "tbWidth";
-            this.tbWidth.Size = new System.Drawing.Size(1332, 45);
-            this.tbWidth.TabIndex = 6;
-            this.tbWidth.Scroll += new System.EventHandler(this.tbWidth_Scroll);
+            this.tbMax.Location = new System.Drawing.Point(14, 140);
+            this.tbMax.Maximum = 2096;
+            this.tbMax.Minimum = -1000;
+            this.tbMax.Name = "tbMax";
+            this.tbMax.Size = new System.Drawing.Size(1332, 45);
+            this.tbMax.TabIndex = 6;
+            this.tbMax.Value = 2096;
+            this.tbMax.Scroll += new System.EventHandler(this.tbMax_Scroll);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1343, 89);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(64, 20);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Min value";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(1343, 140);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(64, 20);
+            this.textBox2.TabIndex = 8;
+            this.textBox2.Text = "Max value";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 747);
-            this.Controls.Add(this.tbWidth);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbMax);
             this.Controls.Add(this.tbMin);
             this.Controls.Add(this.rdBtnTexture);
             this.Controls.Add(this.rdBtnQuads);
@@ -135,7 +161,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +176,9 @@
         private System.Windows.Forms.RadioButton rdBtnQuads;
         private System.Windows.Forms.RadioButton rdBtnTexture;
         private System.Windows.Forms.TrackBar tbMin;
-        private System.Windows.Forms.TrackBar tbWidth;
+        private System.Windows.Forms.TrackBar tbMax;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

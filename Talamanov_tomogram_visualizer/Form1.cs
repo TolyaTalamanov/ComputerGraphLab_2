@@ -12,6 +12,7 @@ namespace Talamanov_tomogram_visualizer
 {
     public partial class Form1 : Form
     {
+       
         bool needReload = false;
         Bin bin = new Bin();
         View view = new View();
@@ -32,7 +33,10 @@ namespace Talamanov_tomogram_visualizer
 
         public Form1()
         {
+           
             InitializeComponent();
+            
+            
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,6 +47,7 @@ namespace Talamanov_tomogram_visualizer
                 string str = dialog.FileName;
                 bin.readBin(str);
                 trackBar1.SetRange(0, Bin.Z - 1);
+                
                 view.SetupView(glControl1.Width, glControl1.Height);
                 loaded = true;
                 glControl1.Invalidate();
@@ -93,21 +98,24 @@ namespace Talamanov_tomogram_visualizer
 
         private void tbMin_Scroll(object sender, EventArgs e)
         {
-            if (tbMin.Value != tbMin.Value + tbWidth.Value)
+            if (tbMax.Value > tbMin.Value)
             {
-                view.SetMinMaxTransferFunction(tbMin.Value, tbMin.Value + tbWidth.Value);
+                view.SetMinMaxTransferFunction(tbMin.Value, tbMax.Value);
                 needReload = true;
             }
-
+            else
+                tbMin.Value++;
         }
 
-        private void tbWidth_Scroll(object sender, EventArgs e)
+        private void tbMax_Scroll(object sender, EventArgs e)
         {
-            if (tbMin.Value != tbMin.Value + tbWidth.Value)                                      //костыли
+            if (tbMax.Value > tbMin.Value)
             {
-                view.SetMinMaxTransferFunction(tbMin.Value, tbMin.Value + tbWidth.Value);
+                view.SetMinMaxTransferFunction(tbMin.Value, tbMax.Value);
                 needReload = true;
             }
+            else
+                tbMax.Value--;
 
         }
     }

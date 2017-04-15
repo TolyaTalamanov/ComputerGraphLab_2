@@ -14,8 +14,8 @@ namespace Talamanov_tomogram_visualizer
 {
     class View
     {
-        public int min = 1;
-        public int max = 2000;
+        public int min = -1000;
+        public int max = 2096;
         private Bitmap textureImage;
         private int VBOtexture;
 

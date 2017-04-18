@@ -31,6 +31,14 @@ namespace Talamanov_tomogram_visualizer
             FrameCount++;
         }
 
+        static void Swap<T>(ref T lhs, ref T rhs)
+        {
+            T temp;
+            temp = lhs;
+            lhs = rhs;
+            rhs = temp;
+        }
+
         public Form1()
         {
            
@@ -58,6 +66,7 @@ namespace Talamanov_tomogram_visualizer
         {
             if (loaded)
             {
+                
                 if (rdBtnQuads.Checked)
                 {
                     view.DrawQuads(currentLayer);

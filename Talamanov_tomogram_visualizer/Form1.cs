@@ -127,5 +127,10 @@ namespace Talamanov_tomogram_visualizer
                 tbMax.Value--;
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Swap(ref Bin.Y, ref Bin.Z);
+        }
     }
 }

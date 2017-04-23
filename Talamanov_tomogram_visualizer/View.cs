@@ -100,18 +100,20 @@ namespace Talamanov_tomogram_visualizer
                     value = Bin.array[x_coord + y_coord * Bin.X + layerNumber * Bin.X * Bin.Y];
                     GL.Color3(TransferFunction(value));
                     GL.Vertex2(x_coord, y_coord);
-                    //#2
-                    value = Bin.array[x_coord + (y_coord + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
-                    GL.Vertex2(x_coord, y_coord + 1);
-                    //#3
-                    value = Bin.array[x_coord + 1 + (y_coord + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
-                    GL.Color3(TransferFunction(value));
-                    GL.Vertex2(x_coord + 1, y_coord + 1);
                     //#4
                     value = Bin.array[x_coord + 1 + y_coord * Bin.X + layerNumber * Bin.X * Bin.Y];
                     GL.Color3(TransferFunction(value));
                     GL.Vertex2(x_coord + 1, y_coord);
+                    //#3
+                    value = Bin.array[x_coord + 1 + (y_coord + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
+                    GL.Color3(TransferFunction(value));
+                    GL.Vertex2(x_coord + 1, y_coord + 1);
+                    //#2
+                    value = Bin.array[x_coord + (y_coord + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
+                    GL.Color3(TransferFunction(value));
+                    GL.Vertex2(x_coord, y_coord + 1);
+                    
+                   
                 }
             }
             GL.End();

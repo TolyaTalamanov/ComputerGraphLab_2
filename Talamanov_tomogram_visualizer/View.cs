@@ -90,36 +90,60 @@ namespace Talamanov_tomogram_visualizer
         public void DrawQuads(int layerNumber)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            GL.Begin(BeginMode.QuadStrip);
+            GL.Begin(PrimitiveType.QuadStrip);
             short value;
+
+
+            for (int y_coord = 0; y_coord < Bin.Y; y_coord += 2)
+            {
+                ////#1
+                //value = Bin.array[0 * Bin.X + layerNumber * Bin.X * Bin.Y];
+                //GL.Color3(TransferFunction(value));
+                //GL.Vertex2(0, y_coord);
+
+                //value = Bin.array[0 * Bin.X + layerNumber * Bin.X * Bin.Y];
+                //GL.Color3(TransferFunction(value));
+                //GL.Vertex2(0, y_coord + 1);
+
+                //value = Bin.array[0 * Bin.X + layerNumber * Bin.X * Bin.Y];
+                //GL.Color3(TransferFunction(value));
+                //GL.Vertex2(0, y_coord);
+
+
+            }
             for (int x_coord = 0; x_coord < Bin.X - 1; x_coord++)
             {
                 //#1
-                value = Bin.array[x_coord  * Bin.X + layerNumber * Bin.X * Bin.Y];
+                value = Bin.array[x_coord * Bin.X + layerNumber * Bin.X * Bin.Y];
                 GL.Color3(TransferFunction(value));
                 GL.Vertex2(x_coord, 0);
+
+                //#4
+                value = Bin.array[(x_coord + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
+                GL.Color3(TransferFunction(value));
+                GL.Vertex2(x_coord + 1, 0);
+
+
                 //#2
                 value = Bin.array[(x_coord + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
                 GL.Color3(TransferFunction(value));
-                GL.Vertex2(x_coord,  1);
+                GL.Vertex2(x_coord, 1);
+
+
                 //#3
                 value = Bin.array[(x_coord + 1 + 1) * Bin.X + layerNumber * Bin.X * Bin.Y];
                 GL.Color3(TransferFunction(value));
-                GL.Vertex2(x_coord + 1,1);
-                //#4
-                value = Bin.array[(x_coord + 1)  * Bin.X + layerNumber * Bin.X * Bin.Y];
-                GL.Color3(TransferFunction(value));
-                GL.Vertex2(x_coord + 1,0);
+                GL.Vertex2(x_coord + 1, 1);
 
                 for (int y_coord = 2; y_coord < Bin.Y - 1; y_coord++)
                 {
-                    
+
                     //#1
                     value = Bin.array[x_coord + y_coord * Bin.X + layerNumber * Bin.X * Bin.Y];
                     GL.Color3(TransferFunction(value));
                     GL.Vertex2(x_coord, y_coord);
-                
-                  
+
+
                     //#2
                     value = Bin.array[x_coord + 1 + y_coord * Bin.X + layerNumber * Bin.X * Bin.Y];
                     GL.Color3(TransferFunction(value));
